@@ -10,15 +10,16 @@ public class MaximumPositive {
         int target = 9;
         int left = 0;
         int right = nums.length - 1;
-        while (left <= right){
-            int mid = (left+right)/2;
+        while(left <= right){
+            int mid = (left + right) / 2;
             int temp = nums[mid];
             if(target == temp){
                 return mid;
             }
-            if(target < mid){
+            if(target < temp){
                 right = mid - 1;
-            } else{
+            }
+            else{
                 left = mid + 1;
             }
         }
