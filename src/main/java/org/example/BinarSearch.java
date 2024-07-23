@@ -7,18 +7,18 @@ public class BinarSearch {
 
     }
     public static int search(int[] nums, int target) {
-        int start = 0;
-        int end = nums.length-1;
-        while(start <= end){
-            int mid = (start+end)/2;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right){
+            int mid = (left + right) / 2;
             int temp = nums[mid];
             if(temp == target){
                 return mid;
             }
             if(target < temp){
-                end = mid-1;
+                right = mid - 1;
             }else{
-               start = mid+1;
+                left = mid + 1;
             }
         }
         return -1;
