@@ -1,5 +1,9 @@
 package org.example;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
 public class LicenseKey {
     public static void main(String[] args) {
         System.out.println(licenseKeyFormatting("5F3Z-2e-9-w", 4));
@@ -27,6 +31,7 @@ public class LicenseKey {
             builder.insert(firstGroupLength, "-");
             for (int i = k + firstGroupLength + 1; i < formatedS.length(); i += k) {
                 builder.insert(i, "-");
+
             }
         } else {
             for (int i = k; i < formatedS.length(); i += k) {
