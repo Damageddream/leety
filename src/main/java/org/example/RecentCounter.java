@@ -12,7 +12,9 @@ public class RecentCounter {
         this.currentRange = new int[2];
     }
 
+
     public int ping(int t) {
+        String a = "asd";
         currentRange[0] = t - 3000;
         currentRange[1] = t;
         List<Integer> temp;
