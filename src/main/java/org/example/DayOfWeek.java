@@ -16,21 +16,19 @@ public class DayOfWeek {
     }
 
     public static int maxNumberOfBalloons(String text) {
-        StringBuilder sb = new StringBuilder();
+        Map<Character, Integer> mapBalloons = new HashMap<>();
         String ballon = "balloon";
-        int counter = 0;
-        sb.append(ballon);
-        for (int i = 0; i < text.length(); i++) {
-            int index = sb.indexOf(String.valueOf(text.charAt(i)));
-            if(index != -1){
-                sb.deleteCharAt(index);
-                if(sb.isEmpty()){
-                    counter++;
-                    sb.append(ballon);
-                }
-            }
+        for (int i = 0; i < ballon.length(); i++) {
+            mapBalloons.put(ballon.charAt(i), 0);
         }
-        return counter;
+        for (int i = 0; i < text.length(); i++) {
+            mapBalloons.computeIfPresent(text.charAt(i), (key, value) -> ++value);
+        }
+        int singleLetterMin = mapBalloons.values().stream().min(Integer::compare).get();
+        int l = mapBalloons.get('l');
+        int o = mapBalloons.get('o');
+        int doubleLettesMin = Math.min(l / 2, o / 2);
+        return Math.min(singleLetterMin, doubleLettesMin);
     }
 }
 
