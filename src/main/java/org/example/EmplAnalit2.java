@@ -14,19 +14,20 @@ public class EmplAnalit2 {
     );
 
     public static double averageSalary() {
-        return employees.stream().mapToInt(Employee::getSalary).average().orElse(0.0);
+        return employees.stream().mapToDouble(Employee::salary).average().orElse(0.0);
     }
 
     public static List<Employee> findByDepartment(String department) {
 
-        return employees.stream().filter(e -> e.getDeparment().equals(department)).toList();
+        return employees.stream().filter(e -> e.department().equals(department)).toList();
     }
 
     public static Employee findEmployeeWithHighestSalary() {
-        return employees.stream().max(Comparator.comparingInt(Employee::getSalary)).orElse(null);
+        return employees.stream().max(Comparator.comparingDouble(Employee::salary)).orElse(null);
     }
 
     public static List<Employee> printTopPaid(int number) {
+        employees.stream().sorted(Comparator.comparing(e->e.getDeparment())).toList();
         return employees.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed()).limit(number).toList();
     }
 
