@@ -1,6 +1,9 @@
 package org.example;
 
 import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LargetNumInString {
     public static void main(String[] args) {
@@ -21,6 +24,7 @@ public class LargetNumInString {
                 lastOddNumIndex = i;
             }
         }
+        Set<Integer> sety = new HashSet<>();
         return lastOddNumIndex == -1 ? "" : num.substring(0, lastOddNumIndex + 1);
     }
 }
