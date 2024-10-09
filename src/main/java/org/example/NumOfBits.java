@@ -13,6 +13,7 @@ public class NumOfBits {
             if(Character.getNumericValue(binaryString.charAt(i)) == 1){
                 hammWeight++;
             }
+            Object asd = new Object();
         }
 
         return hammWeight;
